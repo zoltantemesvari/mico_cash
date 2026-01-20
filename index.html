@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MICO · The Digital Cash Evolution</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                height: 100vh;
+                background: #0a0015;
+                color: #f0f0ff;
+                font-family: "Segoe UI", system-ui, sans-serif;
+                overflow: hidden;
+                background-image:
+                    radial-gradient(
+                        circle at 15% 85%,
+                        rgba(120, 60, 255, 0.18) 0%,
+                        transparent 35%
+                    ),
+                    radial-gradient(
+                        circle at 85% 20%,
+                        rgba(0, 255, 240, 0.13) 0%,
+                        transparent 40%
+                    );
+            }
+
+            .container {
+                height: 100%;
+                display: grid;
+                place-items: center;
+                position: relative;
+                padding: 2rem;
+            }
+
+            .content {
+                text-align: center;
+                position: relative;
+                z-index: 2;
+                max-width: 1100px;
+            }
+
+            .logo-glow {
+                font-size: clamp(1.6rem, 5vw, 7rem);
+                font-weight: 900;
+                letter-spacing: -0.04em;
+                line-height: 0.85;
+                margin: 1rem;
+                background: linear-gradient(
+                    90deg,
+                    #7b2cff 0%,
+                    #00d4ff 25%,
+                    #00ff9d 50%,
+                    #ffd700 75%,
+                    #ff2eff 100%
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                background-size: 300%;
+                animation:
+                    flow 12s linear infinite,
+                    subtle-breathe 6s ease-in-out infinite;
+                filter: drop-shadow(0 0 40px rgba(123, 44, 255, 0.7))
+                    drop-shadow(0 0 80px rgba(0, 212, 255, 0.4));
+            }
+
+            .subtitle {
+                margin: 1.2rem 0 2.5rem;
+                font-size: clamp(1.6rem, 5vw, 3.2rem);
+                font-weight: 300;
+                opacity: 0.9;
+                letter-spacing: 0.02em;
+                background: linear-gradient(90deg, #d0c0ff, #a0f0ff, #c0ffe0);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .tagline {
+                font-size: clamp(1.3rem, 3.8vw, 2.1rem);
+                max-width: 780px;
+                margin: 0 auto 3rem;
+                line-height: 1.45;
+                opacity: 0.85;
+                font-weight: 300;
+            }
+
+            .status-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 0.1rem 2rem;
+                border-radius: 50px;
+                background: rgba(20, 15, 60, 0.5);
+                border: 1px solid rgba(100, 80, 255, 0.35);
+                backdrop-filter: blur(12px);
+                font-size: 1.3rem;
+                font-weight: 500;
+                margin-top: 1.5rem;
+            }
+
+            .dot {
+                width: 14px;
+                height: 14px;
+                background: #00ff9d;
+                border-radius: 50%;
+                box-shadow: 0 0 18px #00ff9d88;
+                animation: pulse-dot 2.2s infinite;
+            }
+
+            /* Animations */
+            @keyframes flow {
+                0% {
+                    background-position: 0% 50%;
+                }
+                100% {
+                    background-position: 300% 50%;
+                }
+            }
+
+            @keyframes subtle-breathe {
+                0%,
+                100% {
+                    filter: brightness(1)
+                        drop-shadow(0 0 40px rgba(123, 44, 255, 0.7));
+                }
+                50% {
+                    filter: brightness(1.15)
+                        drop-shadow(0 0 70px rgba(123, 44, 255, 0.95));
+                }
+            }
+
+            @keyframes pulse-dot {
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 0.7;
+                }
+                50% {
+                    transform: scale(1.6);
+                    opacity: 1;
+                }
+            }
+
+            /* Floating particles background */
+            .particles {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .particle {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                opacity: 0;
+                animation: float linear infinite;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(100vh) scale(0.2);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.7;
+                }
+                90% {
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: translateY(-20vh) scale(0.6);
+                    opacity: 0;
+                }
+            }
+        </style>
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+    </head>
+    <body>
+        <div class="particles" id="particles"></div>
+
+        <div class="container">
+            <div class="content">
+                <div>
+                    <img src="mico_logo2.png" alt="mico cash" width="66%" />
+                </div>
+                <div class="logo-glow">MiCO</div>
+                <div class="tagline">
+                    Mobile-first, real digital cash for everyday payments. Fast,
+                    secure, and easy to use. Forever decentralized.<br />
+                    The future of money is here.
+                </div>
+
+                <div class="status-pill">
+                    <div class="dot"></div>
+                    Genesis Phase — Q4 2026
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Floating particles effect
+            function createParticle() {
+                const p = document.createElement("div");
+                p.className = "particle";
+
+                const size = Math.random() * 3 + 3;
+                p.style.width = size + "px";
+                p.style.height = size + "px";
+                p.style.left = Math.random() * 100 + "vw";
+                p.style.animationDuration = Math.random() * 18 + 12 + "s";
+                p.style.animationDelay = Math.random() * 8 + "s";
+
+                document.getElementById("particles").appendChild(p);
+
+                setTimeout(() => p.remove(), 30000);
+            }
+
+            setInterval(createParticle, 280);
+
+            // More particles on load
+            for (let i = 0; i < 18; i++) {
+                setTimeout(createParticle, i * 400);
+            }
+        </script>
+    </body>
+</html>
